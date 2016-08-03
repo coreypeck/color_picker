@@ -1,5 +1,5 @@
 //Initiallizing all the needed variables
-var colors = ["Chartreuse", "CornflowerBlue", "Cornsilk", "DarkGoldenRod", "DarkOrchid", "DarkSlateBlue", "FireBrick", "FloralWhite", "Gainsboro", "HoneyDew", "LavenderBlush", "LightSteelBlue", "MediumTurquoise", "MidnightBlue", "Moccasin", "NavajoWhite", "OldLace", "PapayaWhip", "Peru", "RebeccaPurple", "RosyBrown", "Sienna", "Thistle", "WhiteSmoke"];
+var colors = ["AliceBlue","AntiqueWhite","Aqua","Aquamarine","Azure","Beige","Bisque","Black","BlanchedAlmond","Blue","BlueViolet","Brown","BurlyWood","CadetBlue","Chartreuse","Chocolate","Coral","CornflowerBlue","Cornsilk","Crimson","Cyan","DarkBlue","DarkCyan","DarkGoldenRod","DarkGray","DarkGrey","DarkGreen","DarkKhaki","DarkMagenta","DarkOliveGreen","Darkorange","DarkOrchid","DarkRed","DarkSalmon","DarkSeaGreen","DarkSlateBlue","DarkSlateGray","DarkSlateGrey","DarkTurquoise","DarkViolet","DeepPink","DeepSkyBlue","DimGray","DimGrey","DodgerBlue","FireBrick","FloralWhite","ForestGreen","Fuchsia","Gainsboro","GhostWhite","Gold","GoldenRod","Gray","Grey","Green","GreenYellow","HoneyDew","HotPink","IndianRed","Indigo","Ivory","Khaki","Lavender","LavenderBlush","LawnGreen","LemonChiffon","LightBlue","LightCoral","LightCyan","LightGoldenRodYellow","LightGray","LightGrey","LightGreen","LightPink","LightSalmon","LightSeaGreen","LightSkyBlue","LightSlateGray","LightSlateGrey","LightSteelBlue","LightYellow","Lime","LimeGreen","Linen","Magenta","Maroon","MediumAquaMarine","MediumBlue","MediumOrchid","MediumPurple","MediumSeaGreen","MediumSlateBlue","MediumSpringGreen","MediumTurquoise","MediumVioletRed","MidnightBlue","MintCream","MistyRose","Moccasin","NavajoWhite","Navy","OldLace","Olive","OliveDrab","Orange","OrangeRed","Orchid","PaleGoldenRod","PaleGreen","PaleTurquoise","PaleVioletRed","PapayaWhip","PeachPuff","Peru","Pink","Plum","PowderBlue","Purple","Red","RosyBrown","RoyalBlue","SaddleBrown","Salmon","SandyBrown","SeaGreen","SeaShell","Sienna","Silver","SkyBlue","SlateBlue","SlateGray","SlateGrey","Snow","SpringGreen","SteelBlue","Tan","Teal","Thistle","Tomato","Turquoise","Violet","Wheat","White","WhiteSmoke","Yellow","YellowGreen"];
 var usedColors = [];
 var numBlocks = 0;
 var randColor = 0;
@@ -84,7 +84,7 @@ $("document").ready(function() {
     function randomPhrase() {
         var phraseNum = randomNumber(first, phrases.length - 1);
         var thePhrase = phrases[phraseNum];
-        alert(thePhrase);
+        $('#message').text(thePhrase);
     }
     // function changeColor(){
     //   $(this).css("border", "100px", "solid", "black");
@@ -128,8 +128,8 @@ $("document").ready(function() {
             borderWidth: 2
         });
     });
-//Sets up Default 4 random colors
-for (var i = 0; i < 4; i++) {
-    addBlock();
-}
+    //Sets up Default 4 random colors
+    for (var i = 0; i < 4; i++) {
+        addBlock();
+    }
 });

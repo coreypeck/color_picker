@@ -1,12 +1,12 @@
 body {
-  background-color: black;
+    background-color: black;
 }
 #blockhome {
-  background-color: silver;
-  width: 640px;
+    background-color: silver;
+    width: 640px;
 }
 .blockdisplay {
-  width: 640px;
+    width: 640px;
     padding: 50px 50px 50px 50px;
 }
 .square {
@@ -17,14 +17,14 @@ body {
     margin: 0px 2.5px 0px 2.5px;
 }
 p {
-  color: white;
-  background-color: black;
+    color: white;
+    background-color: black;
 }
 #colorname {
-  color: white;
-  background-color: black;
+    color: white;
+    background-color: black;
 }
 #message {
-  color: white;
-  background-color: black;
+    color: white;
+    background-color: black;
 }
