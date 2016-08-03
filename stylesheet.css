@@ -1,0 +1,30 @@
+body {
+  background-color: black;
+}
+#blockhome {
+  background-color: silver;
+}
+.blockadd {}
+.blockremove {}
+.blockdisplay {
+    padding: 50px 50px 50px 50px;
+}
+.square {
+    display: inline-block;
+    border: 2px solid black;
+    width: 100px;
+    height: 100px;
+    margin: 0px 2.5px 0px 2.5px;
+}
+p {
+  color: white;
+  background-color: black;
+}
+#colorname {
+  color: white;
+  background-color: black;
+}
+#message {
+  color: white;
+  background-color: black;
+}
