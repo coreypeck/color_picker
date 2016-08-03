@@ -3,10 +3,10 @@ body {
 }
 #blockhome {
   background-color: silver;
+  width: 640px;
 }
-.blockadd {}
-.blockremove {}
 .blockdisplay {
+  width: 640px;
     padding: 50px 50px 50px 50px;
 }
 .square {

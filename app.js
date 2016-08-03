@@ -7,18 +7,19 @@ var theColor = " ";
 var first = 0;
 var phrases = ["Not Even Close", "Surely That Was a Misclick", "Are You Even Trying?", "I'm Pretty Sure That One was Right. The Programmer Must Have Messed Up", "That Would Be a Good Guess...For a Colorblind Dog", "They Way You Have Been Clicking, It's Like You've Never Heard Of These Colors Before", "Seriously?", "Why Would You Think It's This One?"];
 $("document").ready(function() {
-  //Creates a new Square
+    //Creates a new Square
     function addBlock() {
         randColor = randomNumber(first, (colors.length - 1));
         theColor = colors[randColor];
         //Checks to make sure the color isn't already in use
         theColor = checkColor(theColor);
-        //disables add button if there are no more avialable colors
+        //disables add button if there are no more available colors
         if (theColor == null) {
             $('button.blockadd').replaceWith("<button class='blockadd' disabled>Add Blocks</button>");
         } else {
-          //Adds square is the color isn't being used
-            $(".blockdisplay").append("<div class='square' style='background-color:" + theColor + ";'></div>");
+            //Checks if square is the color that isn't being used
+            var newSquare = $("<div class='square' style='background-color:" + theColor + ";'></div>").hide().fadeIn('slow');
+            $(".blockdisplay").append(newSquare);
             usedColors.push(theColor);
             //selects the color to find out of the colors being used currently
             findColor();
@@ -59,54 +60,74 @@ $("document").ready(function() {
     //The function used to decide the color to select
     function findColor() {
         var randomized = randomNumber(first, usedColors.length - 1);
-        $("#colorname").replaceWith("<p id='colorname' style='color:" + usedColors[randomized] + ";'>" + usedColors[randomized] + "</p>");
+        $("#colorname").replaceWith("<p id='colorname' style='border: 0px solid " + usedColors[randomized] + ";'>" + usedColors[randomized] + "</p>");
     }
     //This compares your click vs that of the correct 'pick'
     function colorCheck() {
-        if ($(this).css('background-color') == $('#colorname').css('color')) {
-          $(this).css('background-color', "OrangeRed");
-          //This connects this to a variable so that it can be passed to the function
+        console.log($(this).css('border-bottom-color'));
+        if ($(this).css('background-color') == $('#colorname').css('border-bottom-color')) {
+            $(this).css('background-color', "OrangeRed");
+            //This connects this to a variable so that it can be passed to the function
             var binding = $(this).bind();
             console.log(binding);
             setTimeout(function() {
                 console.log("Is this Called?");
-                $(binding).css("background-color", $("#colorname").css('color'));
+                $(binding).css("background-color", $("#colorname").css('border-bottom-color'));
                 victory();
             }, 2000);
         } else {
-          //Pulls a random phrase from the phrase array
+            //Pulls a random phrase from the phrase array
             randomPhrase();
+        }
     }
-}
-//Uses the randomNumber function to get a random phrase
-function randomPhrase() {
-    var phraseNum = randomNumber(first, phrases.length - 1);
-    var thePhrase = phrases[phraseNum];
-    alert(thePhrase);
-}
-// function changeColor(){
-//   $(this).css("border", "100px", "solid", "black");
-// }
-function victory() {
-    var ans = confirm("Yup, that looks like " + $("#colorname").text() + " to me! Do you wish to play again?")
-    if (ans == true) {
+    //Uses the randomNumber function to get a random phrase
+    function randomPhrase() {
+        var phraseNum = randomNumber(first, phrases.length - 1);
+        var thePhrase = phrases[phraseNum];
+        alert(thePhrase);
+    }
+    // function changeColor(){
+    //   $(this).css("border", "100px", "solid", "black");
+    // }
+    function victory() {
+        var ans = confirm("Yup, that looks like " + $("#colorname").text() + " to me! Do you wish to play again?")
+        if (ans == true) {
+            reset();
+        } else {
+            alert("Thank you for playing!");
+        }
+    }
+
+    function reset() {
         usedColors = [];
         theColor = " ";
         $(".square").remove();
         $("#colorname").text(" ");
-        for(var i = 0; i < 4; i++){
-          addBlock();
+        for (var i = 0; i < 4; i++) {
+            addBlock();
         }
-    } else {
-        alert("Thank you for playing!");
     }
-}
-//gets the page ready to recieve clicks
-$(".blockadd").on("click", addBlock);
-$(".blockremove").on("click", remBlock);
-$(".blockdisplay").on("click", ".square", colorCheck);
+    //gets the page ready to recieve clicks
+    $(".blockadd").on("click", addBlock);
+    $(".blockremove").on("click", remBlock);
+    $(".blockreset").on("click", reset);
+    $(".blockdisplay").on("click", ".square", colorCheck);
+    $(".blockdisplay").on("mouseover", ".square", function() {
+        $(this).stop().animate({
+            height: 110,
+            width: 110,
+            borderWidth: 5
+        });
+    });
+    $(".blockdisplay").on('mouseleave', ".square", function() {
+        $(this).stop().animate({
+            height: 100,
+            width: 100,
+            borderWidth: 2
+        });
+    });
 //Sets up Default 4 random colors
-for(var i = 0; i < 4; i++){
-  addBlock();
+for (var i = 0; i < 4; i++) {
+    addBlock();
 }
 });
