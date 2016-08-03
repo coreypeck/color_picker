@@ -103,6 +103,7 @@ $("document").ready(function() {
         theColor = " ";
         $(".square").remove();
         $("#colorname").text(" ");
+        $('button.blockadd').replaceWith("<button class='blockadd'>Add Blocks</button>");
         for (var i = 0; i < 4; i++) {
             addBlock();
         }
