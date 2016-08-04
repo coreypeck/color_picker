@@ -1,17 +1,31 @@
 body {
+  width: 675px;
     background-color: black;
+    border: 2px solid grey;
 }
-#blockhome {
-    background-color: silver;
-    width: 640px;
+#button {
+  position: fixed;
+  display: inline;
+  margin: 0 auto;
+  color: white;
+}
+.name {
+  color: white;
+  display: inline;
+}
+.score {
+  color: white;
+  display: inline;
 }
 .blockdisplay {
-    width: 640px;
-    padding: 50px 50px 50px 50px;
+    width: 675px;
+    height: 200px;
+    padding: 50px 50px 50px 0px;
+    overflow: scroll;
 }
 .square {
     display: inline-block;
-    border: 2px solid black;
+    border: 2px solid grey;
     width: 100px;
     height: 100px;
     margin: 0px 2.5px 0px 2.5px;
@@ -21,8 +35,11 @@ p {
     background-color: black;
 }
 #colorname {
+  width: 650px;
     color: white;
     background-color: black;
+    font-size: 20px;
+    text-align: center;
 }
 #message {
     color: white;
